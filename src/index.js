@@ -12,7 +12,7 @@
  * 
  */
 
-var APP_ID = "amzn1.ask.skill.bfaafdf4-c41d-4ba5-9572-7e7ecddc53ef";
+var APP_ID = "amzn1.ask.skill.b1f13a7d-9b02-45d2-b8b7-9abbf6fde467";
 
 var ANSWER_COUNT = 4; // The number of possible answers per trivia question.
 var GAME_LENGTH = 10;  // The number of questions per trivia game.
@@ -87,8 +87,10 @@ function loadQuestions(noOfQuestions)
     var phoneText = "State the Phone Code for  " ;
     var answers = [];
 
-    for(var phoneCtr= 0; phoneCtr<4 ; phoneCtr++)
-        answers.push(selectedCountries[phoneCtr].phone);
+
+           for(var capCtr= 0; capCtr<4 ; capCtr++)
+                answers.push(selectedCountries[capCtr].phone);
+    
 
     qanda[phoneText + selectedCountries[0].name] = answers;
     qandaCollection.push(qanda);
