@@ -78,19 +78,32 @@ function loadQuestions(noOfQuestions)
     {
     var qanda = {}; 
     var selectedCountries = [];
+    var totalCountries = 0;
         for(var ctryCtr=0; ctryCtr<4 ; ctryCtr++)
         {
             var randomNumber = getRandomInt(1,244);
             if(countries.countries[randomNumber].phone.length>1)
+            {
                 selectedCountries.push(countries.countries[randomNumber]);
+                totalCountries = totalCountries + 1;    
+            }
+
         }
     var phoneText = "State the Phone Code for  " ;
     var answers = [];
 
+    for(var currCtr= 0; currCtr<totalCountries ; currCtr++)
+            {
+                if(selectedCountries[currCtr].phone.indexOf(',')==-1)
+                {
+                    answers.push(selectedCountries[currCtr].phone);
+                }
+                else
+                {
+                    answers.push(selectedCountries[currCtr].phone.split(",")[0]);
+                }
 
-           for(var capCtr= 0; capCtr<4 ; capCtr++)
-                answers.push(selectedCountries[capCtr].phone);
-    
+            }
 
     qanda[phoneText + selectedCountries[0].name] = answers;
     qandaCollection.push(qanda);
